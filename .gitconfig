@@ -1,0 +1,27 @@
+[alias]
+    amend = commit --amend
+    br = branch
+    co = checkout
+    c = commit
+    d = diff
+    fix   = "!f() { git commit -a --fixup=HEAD; git rebase -i HEAD~2 --autosquash; }; f"
+    graph = log --graph --oneline --decorate --date=relative --all
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    st = status
+[push]
+	default = simple
+[pull]
+    rebase = true
+[color] 
+    diff = auto
+    interactive = auto
+    status = auto
+    branch = auto
+[core]
+    autocrlf = input
+    editor = vim
+[filter "gitignore"]
+    clean = "sed '/#gitignore$/'d"
+    smudge = cat
