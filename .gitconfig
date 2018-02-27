@@ -17,7 +17,7 @@
 [core]
     autocrlf = input
     editor = vim
-	excludesfile = $HOME/.gitignore
+	excludesfile = ~/.gitignore
 [filter "gitignore"]
     clean = "sed '/#gitignore$/'d"
     smudge = cat
