@@ -237,6 +237,14 @@ au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-tab)
 
+" Python
+map <Leader>p :call InsertLine()<CR>
+
+function! InsertLine()
+  let trace = expand("import pdb;from pprint import pprint as p;pdb.set_trace()")
+  execute "normal o".trace
+endfunction
+
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
