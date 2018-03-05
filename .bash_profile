@@ -9,6 +9,8 @@ alias go17=$HOME/dev/goroots/go1.7/bin/go
 alias go18=$HOME/dev/goroots/go1.8/bin/go
 alias gotip=$HOME/dev/goroots/gotip/bin/go
 
+alias ss='go run $HOME/dev/golang/src/github.com/mchestr/mine-tracker/main.go'
+
 export SVN_EDITOR=vim
 
 source ~/.gittools/git-completion.bash
