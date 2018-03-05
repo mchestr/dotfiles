@@ -72,3 +72,5 @@ caskInstall vagrant
 caskInstall virtualbox
 brewInstall rg
 
+/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension Shan.code-settings-sync
+
