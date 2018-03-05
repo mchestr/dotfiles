@@ -68,5 +68,7 @@ caskInstall visual-studio-code
 caskInstall slack
 caskInstall spotify
 caskInstall docker
+caskInstall vagrant
+caskInstall virtualbox
 brewInstall rg
 
