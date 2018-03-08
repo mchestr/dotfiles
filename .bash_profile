@@ -2,7 +2,7 @@ alias ls="ls -G"
 alias ll="ls -GFlash"
 alias dev="cd ~/dev"
 
-export PATH=$PATH:$HOME/dev/goroots/go1.10/bin:$HOME/dev/golang/bin
+export PATH=$PATH:$HOME/dev/goroots/go1.10/bin:$HOME/dev/golang/bin:node_modules/.bin
 export GOPATH=$HOME/dev/golang
 alias go14=$HOME/dev/goroots/go1.4/bin/go
 alias go17=$HOME/dev/goroots/go1.7/bin/go

@@ -71,6 +71,8 @@ caskInstall docker
 caskInstall vagrant
 caskInstall virtualbox
 brewInstall rg
+caskInstall java
+brewInstall clojure
 
 /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension Shan.code-settings-sync
 

@@ -4,7 +4,7 @@
     co = checkout
     c = commit
     d = diff
-    fix   = "!f() { git commit -a --fixup=HEAD; git rebase -i HEAD~2 --autosquash; }; f"
+    fix = "!f() { rev=${1:-$(git rev-parse HEAD)}; git commit -a --fixup=${rev} && git rebase -i ${rev}~1 --autosquash; }; f"
     graph = log --graph --oneline --decorate --date=relative --all
     rb = rebase
     rba = rebase --abort
