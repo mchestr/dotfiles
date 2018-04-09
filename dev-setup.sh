@@ -7,8 +7,7 @@ GIT_EMAIL=$(git config user.email)
 
 function caskInstall {
     if [[ "$CONFIRM_ALL" != "y" ]]; then
-        echo "Install $1 (y|n)?"
-        read in
+        in=$(readInput "Install $1 (y|n)?")
 
         if [[ "$in" != "y" ]]; then
             return
@@ -21,14 +20,19 @@ function caskInstall {
 
 function brewInstall {
     if [[ "$CONFIRM_ALL" != "y" ]]; then
-        echo "Install $1 (y|n)?"
-        read in
+        in=$(readInput "Install $1 (y|n)?")
 
         if [[ "$in" != "y" ]]; then
             return
         fi;
     fi;
     brew install $1
+}
+
+function readInput {
+    echo "$1"
+    read in
+    echo "$in"
 }
 
 
@@ -74,5 +78,15 @@ brewInstall rg
 caskInstall java
 brewInstall clojure
 
-/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension Shan.code-settings-sync
+if [[ "$(readInput 'Setup VCS (y|n)? ') == "y" ]]; then
+    gittoken=$(readInput "GitHub Token: ")
+    gist=$(readInput "VCS Settings GitHub GIST: ")
+    VCS_SETTINGS__DIR="$HOME/Library/Application Support/Code/User"
+    VCS_SETTINGS_FILE="$VCS_SETTINGS_DIR/settings.json"
+    VCS_SETTINGS_SYNC_FILE="$VCS_SETTINGS_DIR/syncLocalSettings.json"
+
+    /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension Shan.code-settings-sync
+    python -c "import dev_setup;dev_setup.setup_vcs_settings('$VCS_SETTINGS_FILE', '$gist')"
+    python -c "import dev_setup;dev_setup.setup_vcs_settings_sync('$VCS_SETTINGS_SYNC_FILE', '$gittoken')"
+fi;
 
