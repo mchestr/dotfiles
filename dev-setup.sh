@@ -77,6 +77,7 @@ caskInstall virtualbox
 brewInstall rg
 caskInstall java
 brewInstall clojure
+caskInstall 1password
 
 if [[ "$(readInput 'Setup VCS (y|n)? ') == "y" ]]; then
     gittoken=$(readInput "GitHub Token: ")
