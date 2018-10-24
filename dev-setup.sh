@@ -66,9 +66,11 @@ if [[ "$?" -eq "1" ]]; then
 fi;
 
 brew update
+caskInstall 1password
 caskInstall google-chrome
+caskInstall firefox
+caskInstall pycharm
 caskInstall iterm2
-caskInstall visual-studio-code
 caskInstall slack
 caskInstall spotify
 caskInstall docker
@@ -77,17 +79,5 @@ caskInstall virtualbox
 brewInstall rg
 caskInstall java
 brewInstall clojure
-caskInstall 1password
-
-if [[ "$(readInput 'Setup VCS (y|n)? ') == "y" ]]; then
-    gittoken=$(readInput "GitHub Token: ")
-    gist=$(readInput "VCS Settings GitHub GIST: ")
-    VCS_SETTINGS__DIR="$HOME/Library/Application Support/Code/User"
-    VCS_SETTINGS_FILE="$VCS_SETTINGS_DIR/settings.json"
-    VCS_SETTINGS_SYNC_FILE="$VCS_SETTINGS_DIR/syncLocalSettings.json"
-
-    /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension Shan.code-settings-sync
-    python -c "import dev_setup;dev_setup.setup_vcs_settings('$VCS_SETTINGS_FILE', '$gist')"
-    python -c "import dev_setup;dev_setup.setup_vcs_settings_sync('$VCS_SETTINGS_SYNC_FILE', '$gittoken')"
-fi;
+caskInstall whatsapp
 
