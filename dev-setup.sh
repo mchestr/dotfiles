@@ -80,4 +80,5 @@ brewInstall rg
 caskInstall java
 brewInstall clojure
 caskInstall whatsapp
+caskInstall tunnelblick
 
