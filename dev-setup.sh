@@ -6,33 +6,13 @@ GIT_EMAIL=$(git config user.email)
 
 
 function caskInstall {
-    if [[ "$CONFIRM_ALL" != "y" ]]; then
-        in=$(readInput "Install $1 (y|n)?")
-
-        if [[ "$in" != "y" ]]; then
-            return
-        fi;
-    fi;
     echo "Installing $1..."
     brew cask install $1
 }
 
 
 function brewInstall {
-    if [[ "$CONFIRM_ALL" != "y" ]]; then
-        in=$(readInput "Install $1 (y|n)?")
-
-        if [[ "$in" != "y" ]]; then
-            return
-        fi;
-    fi;
     brew install $1
-}
-
-function readInput {
-    echo "$1"
-    read in
-    echo "$in"
 }
 
 
@@ -76,9 +56,10 @@ caskInstall spotify
 caskInstall docker
 caskInstall vagrant
 caskInstall virtualbox
-brewInstall rg
 caskInstall java
-brewInstall clojure
 caskInstall whatsapp
 caskInstall tunnelblick
+
+brewInstall rg
+brewInstall clojure
 
