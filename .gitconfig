@@ -50,3 +50,5 @@
 	untracked = cyan
 [gc]
 	auto = 256
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh

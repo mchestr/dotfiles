@@ -5,17 +5,6 @@ GIT_USERNAME=$(git config user.name)
 GIT_EMAIL=$(git config user.email)
 
 
-function caskInstall {
-    echo "Installing $1..."
-    brew cask install $1
-}
-
-
-function brewInstall {
-    brew install $1
-}
-
-
 if [[ "$GIT_USERNAME" == "" ]] && [[ "$GIT_EMAIL" == "" ]]; then
 
     echo "NAME for git? "
@@ -33,33 +22,22 @@ if [[ "$GIT_USERNAME" == "" ]] && [[ "$GIT_EMAIL" == "" ]]; then
     rm "${GIT_CONFIG}_tmp2"
 fi;
 
-if [[ "$CONFIRM_ALL" == "y" ]]; then
-    echo "skipping install confirmations..."
-fi;
-
-
-which brew
-if [[ "$?" -eq "1" ]]; then
-    # Install Homebrew
-    echo "Installing Homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi;
-
 brew update
-caskInstall 1password
-caskInstall google-chrome
-caskInstall firefox
-caskInstall pycharm
-caskInstall iterm2
-caskInstall slack
-caskInstall spotify
-caskInstall docker
-caskInstall vagrant
-caskInstall virtualbox
-caskInstall java
-caskInstall whatsapp
-caskInstall tunnelblick
+brew cask install 1password
+brew cask install google-chrome
+brew cask install firefox
+brew cask install pycharm
+brew cask install iterm2
+brew cask install slack
+brew cask install spotify
+brew cask install docker
+brew cask install vagrant
+brew cask install virtualbox
+brew cask install java
+brew cask install whatsapp
+brew cask install tunnelblick
 
-brewInstall rg
-brewInstall clojure
+brew install vim --with-lua
+brew install rg
+brew install clojure
 

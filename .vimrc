@@ -87,6 +87,9 @@ map <F3> :retab <CR>
 " 2 space tabs in html, php
 autocmd FileType html :setlocal sw=2 ts=2 sts=2
 autocmd FileType php :setlocal sw=2 ts=2 sts=2
+autocmd FileType c :setlocal sw=2 ts=2 sts=2
+autocmd FileType ino :setlocal sw=2 ts=2 sts=2
+autocmd FileType h :setlocal sw=2 ts=2 sts=2
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -95,18 +98,13 @@ autocmd FileType php :setlocal sw=2 ts=2 sts=2
 map <space> /
 map <c-space> ?
 nnoremap <F4> :set nonumber!<CR>
+nnoremap <C-b> :make<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
-
-"""""""""""""""""""""""""""""
-" => NERDTree
-"""""""""""""""""""""""""""""
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 """"""""""""""""""""""""""""""
 " => Yanked from GKlok
