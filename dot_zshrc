@@ -1,0 +1,5 @@
+alias k='kubectl'
+PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export GPG_TTY=$(tty)
+
+eval "$(direnv hook zsh)"
